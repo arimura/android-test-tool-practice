@@ -1,0 +1,6 @@
+test:
+  override:
+    #run unit tests
+    - ./gradlew test
+    #copy unit tests report
+    - cp -r app/build/test-results/debug/* $CIRCLE_TEST_REPORTS
