@@ -9,7 +9,10 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.both;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.isIn;
+import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.IsInstanceOf.any;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -55,5 +58,15 @@ public class HamcrestTest {
     public void testNot(){
         String val = "";
         assertThat(val, is(not(nullValue())));
+    }
+
+    @Test
+    public void testGreater(){
+        assertThat(10, is(greaterThan(1)));
+    }
+
+    @Test
+    public void testCompound(){
+        assertThat(10, is(both(greaterThan(9)).and(lessThan(20))));
     }
 }
