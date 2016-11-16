@@ -2,12 +2,14 @@ package com.hormiga6.androidtesttoolpractice;
 
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.everyItem;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.both;
 import static org.hamcrest.Matchers.greaterThan;
@@ -68,5 +70,10 @@ public class HamcrestTest {
     @Test
     public void testCompound(){
         assertThat(10, is(both(greaterThan(9)).and(lessThan(20))));
+    }
+
+    @Test
+    public void testInstance(){
+        assertThat(new IOException(), instanceOf(Throwable.class));
     }
 }
