@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -16,6 +17,8 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Created by kotaro.arimura on 2016/11/21.
@@ -31,5 +34,12 @@ public class EspressoTest {
         onView(withId(R.id.editTextHeader)).perform(clearText(), typeText("hoge"), closeSoftKeyboard());
         onView(withId(R.id.buttonHeader)).perform(click());
         onView(withId(R.id.editTextHeader)).check(matches(withText("hoge")));
+    }
+
+    @Test
+    public void testOnData() throws InterruptedException {
+        onView(withText("1")).check(matches(withText("1")));
+        onData(allOf(is("1"))).perform(click());;
+        Thread.sleep(1_000);
     }
 }
