@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.Matchers.both;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.isIn;
@@ -75,5 +77,10 @@ public class HamcrestTest {
     @Test
     public void testInstance(){
         assertThat(new IOException(), instanceOf(Throwable.class));
+    }
+
+    @Test
+    public void testAllOf(){
+        assertThat("hoge",allOf(instanceOf(String.class), startsWith("h")));
     }
 }
