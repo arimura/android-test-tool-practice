@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickList(View view){
         Intent intent = new Intent(this, ListActivity.class);
+        intent.putExtra("hoge","fuga");
         startActivity(intent);
     }
 }
