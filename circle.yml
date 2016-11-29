@@ -5,7 +5,7 @@ test:
     #copy unit tests report
     - cp -r app/build/test-results/debug/* $CIRCLE_TEST_REPORTS
     ## create dummy sd card
-    mksdcard -l e 512M mysdcard.img
+    - mksdcard -l e 512M mysdcard.img
     ##run instrumented unit tests
     - emulator -avd circleci-android22 -no-audio -no-window -sdcard mysdcard.img:
         background: true
