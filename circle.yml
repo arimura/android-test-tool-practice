@@ -5,7 +5,7 @@ test:
     #copy unit tests report
     - cp -r app/build/test-results/debug/* $CIRCLE_TEST_REPORTS
     ##run instrumented unit tests
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - emulator -avd circleci-android22 -no-audio -no-window -sdcard mysdcard.img:
         background: true
         parallel: true
     # wait for it to have booted
