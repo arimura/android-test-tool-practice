@@ -19,25 +19,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    //
-    packagingOptions {
-//        exclude 'mockito-extensions/org.mockito.plugins.MockMaker'
-//        exclude 'mockito-extensions/org.mockito.plugins.StackTraceCleanerProvider'
-    }
 }
 
 // This section is optional
 spoon {
     // for debug output
     debug = true
-//
-//    // To run a single test class
-//    className = 'fully.qualified.TestCase'
-//
-//    // To run a single method in TestCase
-//    methodName = 'testMyApp'
-//
+    // To run a single test class
+    //className = 'fully.qualified.TestCase'
+    // To run a single method in TestCase
+    //methodName = 'testMyApp'
     // To execute the tests device by device */
     sequential = false
 
