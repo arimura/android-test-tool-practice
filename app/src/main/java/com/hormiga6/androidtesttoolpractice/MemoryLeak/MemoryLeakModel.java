@@ -3,10 +3,10 @@ package com.hormiga6.androidtesttoolpractice.MemoryLeak;
 public class MemoryLeakModel {
     static Box contatiner;
 
-    public class Cat {
+    static public class Cat {
     }
 
-    public class Box {
+    static public class Box {
         Cat hiddenCat;
     }
 }

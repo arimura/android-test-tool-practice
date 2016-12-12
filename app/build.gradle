@@ -57,4 +57,7 @@ dependencies {
 
     //espresso
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    //memory leak
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
 }
