@@ -10,7 +10,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.hormiga6.androidtesttoolpractice.MemoryLeak.MemoryLeakActivity;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
+    private static Map<Integer, Class> activityMap = new HashMap<Integer, Class>(){{
+        put(R.id.buttonList, ListActivity.class);
+        put(R.id.buttonMemoryLeak, MemoryLeakActivity.class);
+    }};
+
+    private static Map<Integer, Bundle> bundleMap = new HashMap<Integer, Bundle>(){{
+        Bundle listBundle = new Bundle();
+        listBundle.putString("hoge","fuga");
+        put(R.id.buttonList, listBundle);
+    }};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +66,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void clickList(View view){
-        Intent intent = new Intent(this, ListActivity.class);
-        intent.putExtra("hoge","fuga");
+    public void click(View view){
+        Class clazz = activityMap.get(view.getId());
+        Intent intent = new Intent(this, clazz);
+        Bundle bundle = bundleMap.get(view.getId());
+        if(bundle != null){
+            intent.putExtras(bundle);
+        }
         startActivity(intent);
     }
 }

@@ -20,5 +20,15 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="clickList"/>
+        android:onClick="click"
+        />
+
+    <Button
+        android:text="memory leak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonMemoryLeak"
+        android:onClick="click"
+        android:layout_below="@+id/buttonList"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

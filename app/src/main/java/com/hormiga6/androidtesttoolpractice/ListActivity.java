@@ -19,7 +19,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        String extraString = getIntent().getStringExtra("hoge");
+        String extraString = getIntent().getExtras().getString("hoge");
         ((EditText)findViewById(R.id.editTextHeader)).setText(extraString);
 
         ListView listView = (ListView) findViewById(R.id.listView);
