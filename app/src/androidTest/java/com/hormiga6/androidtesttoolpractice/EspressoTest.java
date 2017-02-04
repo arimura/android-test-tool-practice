@@ -23,6 +23,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.hormiga6.androidtesttoolpractice.Util.getCurrentActivity;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.Is.isA;
@@ -49,7 +50,7 @@ public class EspressoTest {
         onView(withId(R.id.editTextHeader)).perform(clearText(), typeText("hoge"), closeSoftKeyboard());
         onView(withId(R.id.buttonHeader)).perform(click());
         onView(withId(R.id.editTextHeader)).check(matches(withText("hoge")));
-        Spoon.screenshot(Util.getCurrentActivity(), "testShow");
+        Spoon.screenshot(getCurrentActivity(), "testShow");
     }
 
     @Test
@@ -60,7 +61,7 @@ public class EspressoTest {
 
     @Test
     public void testActivityName() {
-        Activity currentActivity = Util.getCurrentActivity();
+        Activity currentActivity = getCurrentActivity();
         assertThat((ListActivity) currentActivity, isA(ListActivity.class));
     }
 }
